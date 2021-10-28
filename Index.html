@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto adoptmeow</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        #alertcontainer{
+            position: fixed;
+            top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="col"></div>
+        <nav class="navbar navbar-light  navbar-expand-md site-header sticky-top  fixed-top" id="nav">
+            <a class="navbar-brand" href="#">ADOPTMEOW</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">FILTRO</button></li>
+
+                    <li class="nav-item"><a class="nav-link" href="#/perfil.html">PERFIL </a></li>
+    </header>
+
+    <!---------------------------------------------- OFF CANVAS -------------------------------------------------------------->
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+
+                    <div class="col-md-4 col-lg-12">
+                        <h6>Edad</h6>
+                        <input type="number" name="edad" id="age" class="form-control">
+                        <h6>Sexo</h6>
+                        <input type="radio" name="sexo" id="masculino">M
+                        <input type="radio" name="sexo" id="femenino">F
+                    </div>
+
+                    <div class="col-md-4 col-lg-12">
+                        <h6>Tamaño</h6>
+                        <input type="radio" name="sexo" id="masculino">M
+                        <input type="radio" name="sexo" id="femenino">F
+                    </div>
+
+
+                    <div class="col-md-4 col-lg-12">
+                        <label for="selectDepartament" required>Ubicación</label>
+                        <select class="form-control" id="selectDepartament" required>
+                            <option value disabled selected>--Eliga por favor--</option>
+                            <option value="1">Artigas</option>
+                            <option value="2">Canelones</option>
+                            <option value="3">Cerro Largo</option>
+                            <option value="4">Colonia</option>
+                            <option value="5">Durazno</option>
+                            <option value="6">Flores</option>
+                            <option value="7">Florida</option>
+                            <option value="8">Lavalleja</option>
+                            <option value="9">Maldonado</option>
+                            <option value="10">Montevideo</option>
+                            <option value="11">Paysandú</option>
+                            <option value="12">Río Negro</option>
+                            <option value="13">Rivera</option>
+                            <option value="14">Rocha</option>
+                            <option value="15">San José</option>
+                            <option value="16">Soriano</option>
+                            <option value="17">Trinidad</option>
+                            <option value="18">Tacuarembó</option>
+                            <option value="19">Treinta y Tres</option>
+                        </select>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="gatos"></div>
+
+    <!------------------------------------------ POPOVER ---------------------------------------------------------->
+    <button type="button" class="btn btn-lg btn-secondary" data-bs-placement="right" data-bs-toggle="popover"
+        data-bs-content="MIAU XD"><img src="Crying-Cats.png" alt="Foto de gatos xd"></button>
+
+
+
+
+     <!------------------------------------------ TOAST ----------------------------------------------------------> 
+        <div class="position-fixed bottom-0 end-5 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <!--<img src="..." class="rounded me-2" alt="..."> -->
+                <strong class="me-auto">GENIAL</strong>
+                <small>1 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Manchitas ha sido adoptado.
+              </div>
+            </div>
+          </div>
+   
+   
+
+
+
+</body>
+<script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTrigger) {
+        return new bootstrap.Popover(popoverTrigger)
+    });
+</script>
+<script src="js/gatos-info.js"></script>
+
+
+<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+
+    <script>
+    var toastTrigger = document.getElementById('liveToastBtn')
+    var toastLiveExample = document.getElementById('liveToast')
+    if (toastTrigger) {
+      toastTrigger.addEventListener('click', function () {
+        var toast = new bootstrap.Toast(toastLiveExample)
+    
+        toast.show()
+      })
+    }
+    </script>
+
+
+
+</body>
+
+</html>
